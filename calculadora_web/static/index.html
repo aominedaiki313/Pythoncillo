@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora Web Moderna con Backend en Python, interfaz interactiva, funciones científicas y modo oscuro glassmorphic.">
+    <title>Calculadora Web Pro - Python & HTML</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-glow">
+        <div class="glow-sphere glow-1"></div>
+        <div class="glow-sphere glow-2"></div>
+    </div>
+
+    <main class="app-container">
+        <!-- Main Calculator Card -->
+        <section class="calculator-card" id="calculatorApp">
+            <!-- Header Bar -->
+            <header class="calc-header">
+                <div class="brand">
+                    <span class="logo-icon">⚡</span>
+                    <h1>Calculadora Python</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="toggleScientificBtn" class="icon-btn" title="Modo Científico">
+                        <span class="btn-icon">f(x)</span>
+                    </button>
+                    <button id="toggleHistoryBtn" class="icon-btn" title="Historial">
+                        <span class="btn-icon">📜</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Screen Display -->
+            <div class="display-container">
+                <div class="status-bar">
+                    <span id="memoryIndicator" class="memory-badge hidden">M</span>
+                    <span id="modeIndicator" class="mode-badge">Estándar</span>
+                </div>
+                <div id="expressionDisplay" class="expression-display"></div>
+                <div id="resultDisplay" class="result-display">0</div>
+            </div>
+
+            <!-- Memory Bar -->
+            <div class="memory-bar">
+                <button class="mem-btn" data-action="mc">MC</button>
+                <button class="mem-btn" data-action="mr">MR</button>
+                <button class="mem-btn" data-action="m-add">M+</button>
+                <button class="mem-btn" data-action="m-sub">M-</button>
+            </div>
+
+            <!-- Scientific Panel (Collapsible) -->
+            <div id="scientificPanel" class="scientific-panel hidden">
+                <button class="sci-btn" data-val="sin(">sin</button>
+                <button class="sci-btn" data-val="cos(">cos</button>
+                <button class="sci-btn" data-val="tan(">tan</button>
+                <button class="sci-btn" data-val="sqrt(">√</button>
+                <button class="sci-btn" data-val="log(">log</button>
+                <button class="sci-btn" data-val="ln(">ln</button>
+                <button class="sci-btn" data-val="^">x^y</button>
+                <button class="sci-btn" data-val="π">π</button>
+                <button class="sci-btn" data-val="(">(</button>
+                <button class="sci-btn" data-val=")">)</button>
+            </div>
+
+            <!-- Standard Keypad -->
+            <div class="keypad">
+                <!-- Row 1 -->
+                <button class="btn btn-action" data-action="clear-all">AC</button>
+                <button class="btn btn-action" data-action="clear-entry">CE</button>
+                <button class="btn btn-action" data-action="backspace">⌫</button>
+                <button class="btn btn-op" data-val="%">%</button>
+                <button class="btn btn-op" data-val="÷">÷</button>
+
+                <!-- Row 2 -->
+                <button class="btn btn-num" data-val="7">7</button>
+                <button class="btn btn-num" data-val="8">8</button>
+                <button class="btn btn-num" data-val="9">9</button>
+                <button class="btn btn-op" data-val="×">×</button>
+
+                <!-- Row 3 -->
+                <button class="btn btn-num" data-val="4">4</button>
+                <button class="btn btn-num" data-val="5">5</button>
+                <button class="btn btn-num" data-val="6">6</button>
+                <button class="btn btn-op" data-val="-">-</button>
+
+                <!-- Row 4 -->
+                <button class="btn btn-num" data-val="1">1</button>
+                <button class="btn btn-num" data-val="2">2</button>
+                <button class="btn btn-num" data-val="3">3</button>
+                <button class="btn btn-op" data-val="+">+</button>
+
+                <!-- Row 5 -->
+                <button class="btn btn-num" data-action="toggle-sign">±</button>
+                <button class="btn btn-num" data-val="0">0</button>
+                <button class="btn btn-num" data-val=".">.</button>
+                <button class="btn btn-equals" data-action="calculate">=</button>
+            </div>
+        </section>
+
+        <!-- History Drawer -->
+        <aside id="historyDrawer" class="history-drawer hidden">
+            <div class="history-header">
+                <h3>Historial de Cálculos</h3>
+                <button id="closeHistoryBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="historyList" class="history-list">
+                <p class="empty-msg">No hay cálculos aún</p>
+            </div>
+            <div class="history-footer">
+                <button id="clearHistoryBtn" class="btn btn-secondary">Limpiar Historial</button>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
