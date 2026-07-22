@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Cyberpunk Snake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-bg"></div>
+    <div class="game-container">
+        <header>
+            <h1 class="neon-text">NEON SNAKE</h1>
+            <div class="scoreboard-container">
+                <div class="score-card">
+                    <span class="label">SCORE</span>
+                    <span id="score" class="value">000</span>
+                </div>
+                <div class="score-card">
+                    <span class="label">HI-SCORE</span>
+                    <span id="high-score" class="value">000</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="controls-panel">
+            <div class="select-wrapper">
+                <label for="difficulty">DIFICULTAD:</label>
+                <select id="difficulty">
+                    <option value="easy">FÁCIL</option>
+                    <option value="medium" selected>MEDIO</option>
+                    <option value="hard">DIFÍCIL</option>
+                </select>
+            </div>
+            <div class="button-group">
+                <button id="btn-start" class="btn btn-primary">INICIAR</button>
+                <button id="btn-mute" class="btn btn-icon" aria-label="Silenciar">
+                    <span id="mute-icon">🔊</span>
+                </button>
+            </div>
+        </section>
+
+        <main class="board-container">
+            <canvas id="game-canvas" width="400" height="400"></canvas>
+            
+            <!-- Modal de Game Over / Pausa -->
+            <div id="modal" class="modal hidden">
+                <div class="modal-content">
+                    <h2 id="modal-title" class="neon-text-pink">GAME OVER</h2>
+                    <p id="modal-msg">Has chocado con la pared.</p>
+                    <div class="modal-stats">
+                        <p>Puntuación Final: <span id="final-score" class="text-pink">0</span></p>
+                    </div>
+                    <button id="btn-restart" class="btn btn-primary btn-glow-pink">JUGAR DE NUEVO</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Controles virtuales para dispositivos móviles -->
+        <section class="mobile-controls">
+            <div class="dpad">
+                <button id="ctrl-up" class="dpad-btn up" aria-label="Mover arriba">▲</button>
+                <div class="dpad-middle">
+                    <button id="ctrl-left" class="dpad-btn left" aria-label="Mover izquierda">◀</button>
+                    <div class="dpad-center"></div>
+                    <button id="ctrl-right" class="dpad-btn right" aria-label="Mover derecha">▶</button>
+                </div>
+                <button id="ctrl-down" class="dpad-btn down" aria-label="Mover abajo">▼</button>
+            </div>
+        </section>
+
+        <footer>
+            <p>Usa las teclas <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd> o <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
